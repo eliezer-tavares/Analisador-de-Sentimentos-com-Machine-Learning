@@ -1,0 +1,53 @@
+# Analisador de Sentimentos com Machine Learning
+
+Este projeto demonstra a construção de um analisador de sentimentos simples utilizando Python e a biblioteca scikit-learn. O projeto foi desenvolvido por Eliezer Tavares de Oliveira (eliezertavaresdeoliveira@gmail.com) com foco em acessibilidade, garantindo compatibilidade com leitores de tela como o NVDA.
+
+## Descrição
+
+O analisador utiliza um modelo de regressão logística treinado em um conjunto de dados de exemplo (dados_sentimentos.csv) para classificar textos em diferentes categorias de sentimento (positivo, negativo, neutro, etc.). O código inclui comentários detalhados linha a linha, além de recursos para garantir a acessibilidade dos gráficos gerados.
+
+## Tecnologias Utilizadas
+
+* Python
+* scikit-learn
+* Pandas
+* NumPy
+* Matplotlib
+* Seaborn
+
+## Funcionalidades
+
+* Carrega dados de um arquivo CSV.
+* Pré-processa o texto usando TF-IDF.
+* Treina um modelo de regressão logística.
+* Avalia o modelo com métricas como acurácia e relatório de classificação.
+* Gera um gráfico da distribuição de sentimentos, com configurações de acessibilidade.
+* Prevê o sentimento de novos textos.
+
+## Como Executar
+
+1. Certifique-se de ter o Python 3 instalado.
+2. Instale as bibliotecas necessárias: `pip install pandas numpy scikit-learn matplotlib seaborn`
+3. Crie um arquivo CSV chamado `dados_sentimentos.csv` com duas colunas: "texto" e "sentimento".  Substitua os dados de exemplo pelos seus próprios dados.
+4. Salve o código Python como `analisador_sentimentos.py` no mesmo diretório do arquivo CSV.
+5. Execute o script: `python analisador_sentimentos.py`
+
+## Acessibilidade
+
+O código foi desenvolvido com foco em acessibilidade:
+
+* Comentários detalhados facilitam a navegação pelo código com leitores de tela.
+* A função `configurar_acessibilidade_matplotlib()` ajusta os tamanhos de fonte do gráfico para melhor legibilidade.
+* O gráfico de distribuição de classes é salvo como uma imagem (grafico_sentimentos.png) que pode ser acessada separadamente.
+* Mensagens de erro descritivas são fornecidas em caso de problemas, como arquivo CSV ausente.
+
+
+## Licença
+
+Este projeto é licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+
+## Contato
+
+Eliezer Tavares de Oliveira  
+eliezertavaresdeoliveira@gmail.com
