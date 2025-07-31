@@ -1,53 +1,270 @@
-# Analisador de Sentimentos com Machine Learning
+Sentiment Analysis with Machine Learning
 
-Este projeto demonstra a construção de um analisador de sentimentos simples utilizando Python e a biblioteca scikit-learn. O projeto foi desenvolvido por Eliezer Tavares de Oliveira (eliezertavaresdeoliveira@gmail.com) com foco em acessibilidade, garantindo compatibilidade com leitores de tela como o NVDA.
+This project implements a comprehensive sentiment analysis pipeline using Python, developed by Eliezer Tavares de Oliveira (contact@eliezertavaresdeoliveira.com, www.eliezertavaresdeoliveira.com). Version 0.2 emphasizes accessibility, compatibility with screen readers (e.g., NVDA), and advanced machine learning features for robust multiclass sentiment classification.
 
-## Descrição
+Description
 
-O analisador utiliza um modelo de regressão logística treinado em um conjunto de dados de exemplo (dados_sentimentos.csv) para classificar textos em diferentes categorias de sentimento (positivo, negativo, neutro, etc.). O código inclui comentários detalhados linha a linha, além de recursos para garantir a acessibilidade dos gráficos gerados.
+The sentiment_analysis_advanced.py script provides a complete pipeline for sentiment analysis, utilizing Logistic Regression and TF-IDF vectorization. It supports 27 sentiment classes (admiration, joy, relief, love, anticipation, apprehension, approval, confusion, curiosity, disappointment, disapproval, disgust, amusement, enthusiasm, gratitude, envy, fear, disgust, nostalgia, pride, anger, remorse, surprise, sadness, shame, neutral, optimism) with automatic generation of a synthetic dataset if none is provided. The pipeline includes data preprocessing, model training with hyperparameter optimization, performance evaluation, model persistence, interactive prediction, and accessible reporting in TXT, HTML, and PDF formats.
 
-## Tecnologias Utilizadas
-
-* Python
-* scikit-learn
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
-
-## Funcionalidades
-
-* Carrega dados de um arquivo CSV.
-* Pré-processa o texto usando TF-IDF.
-* Treina um modelo de regressão logística.
-* Avalia o modelo com métricas como acurácia e relatório de classificação.
-* Gera um gráfico da distribuição de sentimentos, com configurações de acessibilidade.
-* Prevê o sentimento de novos textos.
-
-## Como Executar
-
-1. Certifique-se de ter o Python 3 instalado.
-2. Instale as bibliotecas necessárias: `pip install pandas numpy scikit-learn matplotlib seaborn`
-3. Crie um arquivo CSV chamado `dados_sentimentos.csv` com duas colunas: "texto" e "sentimento".  Substitua os dados de exemplo pelos seus próprios dados.
-4. Salve o código Python como `analisador_sentimentos.py` no mesmo diretório do arquivo CSV.
-5. Execute o script: `python analisador_sentimentos.py`
-
-## Acessibilidade
-
-O código foi desenvolvido com foco em acessibilidade:
-
-* Comentários detalhados facilitam a navegação pelo código com leitores de tela.
-* A função `configurar_acessibilidade_matplotlib()` ajusta os tamanhos de fonte do gráfico para melhor legibilidade.
-* O gráfico de distribuição de classes é salvo como uma imagem (grafico_sentimentos.png) que pode ser acessada separadamente.
-* Mensagens de erro descritivas são fornecidas em caso de problemas, como arquivo CSV ausente.
+Technologies Used
 
 
-## Licença
-
-Este projeto é licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
 
-## Contato
 
-Eliezer Tavares de Oliveira  
-eliezertavaresdeoliveira@gmail.com
+Python (3.8+ recommended)
+
+
+
+pandas
+
+
+
+numpy
+
+
+
+scikit-learn
+
+
+
+matplotlib
+
+
+
+seaborn
+
+
+
+joblib
+
+
+
+jinja2
+
+
+
+pypandoc (optional, for PDF reports)
+
+
+
+Pandoc (external tool, required for PDF reports)
+
+Features
+
+
+
+
+
+Automatic Data Generation: Generates a synthetic CSV (dados_sentimentos.csv) with 27 sentiment classes, 1,000 entries per class (27,000 total), if no dataset is provided.
+
+
+
+Data Preprocessing: Uses TF-IDF vectorization with up to 5,000 features.
+
+
+
+Model Training: Trains a Logistic Regression model with hyperparameter optimization via GridSearchCV (parameters: C=[0.1, 1.0, 10.0], penalty=['l1', 'l2']).
+
+
+
+Model Persistence: Saves and loads the model and vectorizer (modelo_sentimentos.pkl, vetorizador.pkl) using joblib.
+
+
+
+Performance Evaluation: Computes accuracy, classification report, and confusion matrix, with detailed logging.
+
+
+
+Multi-Format Reporting: Generates accessible reports in TXT (relatorio_classificacao.txt), HTML (relatorio_classificacao.html), and PDF (relatorio_classificacao.pdf).
+
+
+
+Interactive Prediction: Allows real-time sentiment prediction with user input and probability outputs.
+
+
+
+Feature Importance Analysis: Extracts and saves the top model features to importancia_features.csv.
+
+
+
+Visualization: Creates a bar plot of sentiment distribution (grafico_sentimentos.png) with accessibility settings.
+
+
+
+Logging: Outputs detailed logs to sentiment_analysis.log and console, with UTF-8 encoding for screen reader compatibility.
+
+
+
+Accessibility: Includes textual graph descriptions (grafico_sentimentos_descricao.txt), structured reports, and high-contrast visualizations.
+
+Installation
+
+Prerequisites
+
+
+
+
+
+Python: Version 3.8 or higher.
+
+
+
+Pandoc: Required for PDF report generation (see below for installation instructions).
+
+Steps
+
+
+
+
+
+Clone the Repository:
+
+git clone https://github.com/eliezer-tavares/Analisador-de-Sentimentos-com-Machine-Learning
+cd Analisador-de-Sentimentos-com-Machine-Learning
+
+
+
+Install Python Dependencies: Install the required libraries using the provided requirements.txt:
+
+pip install -r requirements.txt
+
+The requirements.txt includes:
+
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.5.1
+matplotlib==3.9.1
+seaborn==0.13.2
+joblib==1.4.2
+jinja2==3.1.4
+pypandoc==1.13
+
+
+
+Install Pandoc (for PDF reports): Pandoc is an external tool required by pypandoc for generating PDF reports. Follow the platform-specific instructions:
+
+
+
+
+
+Ubuntu/Debian:
+
+sudo apt-get update
+sudo apt-get install pandoc
+
+
+
+macOS (using Homebrew):
+
+brew install pandoc
+
+
+
+Windows:
+
+
+
+
+
+Download the installer from https://pandoc.org/installing.html
+
+
+
+Run the installer and follow the prompts.
+
+
+
+Ensure Pandoc is added to your system PATH (test with pandoc --version in a command prompt).
+
+
+
+Verification: After installation, verify Pandoc is installed:
+
+pandoc --version
+
+
+
+Run the Script: Execute the script with default settings (uses dados_sentimentos.csv and generates HTML reports):
+
+python sentiment_analysis_advanced.py
+
+Or specify a custom CSV and report format:
+
+python sentiment_analysis_advanced.py --arquivo custom_data.csv --formato-relatorio pdf
+
+Usage
+
+
+
+
+
+If dados_sentimentos.csv is not present, the script automatically generates a synthetic dataset with 27 sentiment classes (27,000 entries).
+
+
+
+The script trains a model, evaluates performance, saves the model and vectorizer, generates reports, and creates a bar plot with a textual description.
+
+
+
+Enter interactive mode by running the script and typing text for sentiment prediction (type sair to exit).
+
+
+
+Outputs include:
+
+
+
+
+
+Model and vectorizer: modelo_sentimentos.pkl, vetorizador.pkl
+
+
+
+Reports: relatorio_classificacao.txt, relatorio_classificacao.html, relatorio_classificacao.pdf
+
+
+
+Feature importance: importancia_features.csv
+
+
+
+Plot and description: grafico_sentimentos.png, grafico_sentimentos_descricao.txt
+
+
+
+Logs: sentiment_analysis.log
+
+Accessibility
+
+The project prioritizes accessibility:
+
+
+
+
+
+Detailed Logging: Logs all pipeline stages to sentiment_analysis.log and console, using UTF-8 for screen reader compatibility.
+
+
+
+Graph Descriptions: Saves textual descriptions of the sentiment distribution plot to grafico_sentimentos_descricao.txt.
+
+
+
+Structured Reports: HTML reports use role="grid" for tables; PDF reports use the accessible Noto font.
+
+
+
+High-Contrast Visuals: Plots use the seaborn-v0_8-darkgrid style with rotated labels for 27-class support.
+
+
+
+Commented Code: Detailed bilingual (English/Portuguese) comments enhance code navigation for screen reader users.
+
+License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Contact
+
+Eliezer Tavares de Oliveira Email: contact@eliezertavaresdeoliveira.comWebsite: www.eliezertavaresdeoliveira.com
