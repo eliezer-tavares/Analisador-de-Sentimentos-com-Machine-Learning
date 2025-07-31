@@ -1,0 +1,14 @@
+# requirements.txt for sentiment_analysis_advanced.py
+# Lists dependencies required for the sentiment analysis pipeline
+# Generated for version 0.2 of the project by Eliezer Tavares de Oliveira
+# Install with: pip install -r requirements.txt
+# Note: For PDF reports, install Pandoc separately[](https://pandoc.org/installing.html)
+
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.5.1
+matplotlib==3.9.1
+seaborn==0.13.2
+joblib==1.4.2
+jinja2==3.1.4
+pypandoc==1.13
